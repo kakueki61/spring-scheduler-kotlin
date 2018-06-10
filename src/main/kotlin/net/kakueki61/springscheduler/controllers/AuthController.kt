@@ -9,4 +9,8 @@ class AuthController {
     fun index(): String {
         return "index"
     }
+
+    fun signUp(): String {
+        return "worker/sign_up"
+    }
 }

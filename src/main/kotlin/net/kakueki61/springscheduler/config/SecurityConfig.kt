@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.core.userdetails.User
 import org.springframework.security.core.userdetails.UserDetailsService
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.provisioning.InMemoryUserDetailsManager
 
 
@@ -37,7 +38,7 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
 //                .permitAll()
 
         http.authorizeRequests()
-                .antMatchers("/", "/index", "/home").permitAll()
+                .antMatchers("/", "/index", "/home", "/worker/sign_up").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
@@ -81,4 +82,6 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
 //        }
 //    }
 
+    @Bean
+    fun passwordEncoder() = BCryptPasswordEncoder()
 }
