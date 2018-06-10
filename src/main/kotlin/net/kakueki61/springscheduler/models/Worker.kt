@@ -11,7 +11,7 @@ class Worker(val account: Account, private val authorities: MutableCollection<Gr
     }
 
     override fun isEnabled(): Boolean {
-        return account.isEnabled
+        return account.enabled
     }
 
     override fun getUsername(): String {

@@ -5,7 +5,7 @@ data class Account(
         val userName: String,
         val password: String,
         val role: Role,
-        val isEnabled: Boolean)
+        val enabled: Boolean)
 
 enum class Role {
     WORKER, SHOP, ADMIN
